@@ -4,7 +4,7 @@ Summary:	DocBook - DTD for technical documentation
 Summary(pl.UTF-8):	DocBook - DTD przeznaczone do pisania dokumentacji technicznej
 Name:		docbook-dtd%{sver}-sgml
 Version:	1.0
-Release:	1
+Release:	2
 License:	Free
 Group:		Applications/Publishing/SGML
 URL:		http://www.oasis-open.org/docbook/
@@ -40,7 +40,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}
 install  *.dtd *.mod *.dcl $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/
 
 # install catalog (but filter out ISO entities)
-grep -v 'ISO ' docbook.cat > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/catalog
+grep -v 'ISO ' docbook.cat | grep -v "iso-" > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/catalog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
